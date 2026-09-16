@@ -34,7 +34,7 @@ function HomesInner() {
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {live.map((l) => (
             <li key={l.id}>
-              <Link href={`/homes/${l.id}`} className="df-card block overflow-hidden">
+              <Link href={`/homes/view?id=${l.id}`} className="df-card block overflow-hidden">
                 {l.photos[0] && (
                   <img
                     src={l.photos[0].dataUrl}

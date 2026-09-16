@@ -504,7 +504,7 @@ export function SellModule({ moduleId }: { moduleId: string }) {
                 setError(res.error ?? "Could not publish.");
                 return;
               }
-              router.push(`/homes/${listing.id}`);
+              router.push(`/homes/view?id=${listing.id}`);
             }}
           />
         )}

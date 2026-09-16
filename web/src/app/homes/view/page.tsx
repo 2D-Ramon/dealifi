@@ -1,20 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { RequireAuth } from "@/components/RequireAuth";
 import { useStore } from "@/lib/store";
 
 export default function HomeDetailPage() {
   return (
     <RequireAuth>
-      <HomeDetailInner />
+      <Suspense>
+        <HomeDetailInner />
+      </Suspense>
     </RequireAuth>
   );
 }
 
 function HomeDetailInner() {
-  const { id } = useParams<{ id: string }>();
+  const search = useSearchParams();
+  const id = search.get("id");
   const { listing, user } = useStore();
 
   if (!listing || listing.id !== id || listing.status !== "live") {

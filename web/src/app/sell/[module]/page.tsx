@@ -1,12 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { RequireAuth } from "@/components/RequireAuth";
 import { SellModule } from "@/components/SellModule";
+import { SELLER_MODULES } from "@/lib/modules";
 
-export default function SellModulePage() {
-  const params = useParams<{ module: string }>();
+export function generateStaticParams() {
+  return SELLER_MODULES.map((m) => ({ module: m.id }));
+}
+
+export default async function SellModulePage({
+  params,
+}: {
+  params: Promise<{ module: string }>;
+}) {
+  const { module } = await params;
 
   return (
     <RequireAuth>
@@ -15,7 +21,7 @@ export default function SellModulePage() {
           ← All steps
         </Link>
         <div className="mt-4">
-          <SellModule moduleId={params.module} />
+          <SellModule moduleId={module} />
         </div>
       </div>
     </RequireAuth>
