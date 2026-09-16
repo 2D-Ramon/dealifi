@@ -1,6 +1,33 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
+*.pem
 *.log
+npm-debug.log*
+
+# env
 .env
 .env.*
 !.env.example
+
+# vercel / netlify
 .vercel
+.netlify
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# leftover from the old nested web/ folder (do not deploy)
+/web/node_modules
+/web/.next
+/web/out
