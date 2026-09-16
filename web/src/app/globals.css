@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f3ec;
+  --bg-card: #fffcf7;
+  --fg: #1b2433;
+  --fg-muted: #5c6573;
+  --brand: #0f766e;
+  --brand-dark: #115e59;
+  --navy: #1b2433;
+  --border: #e4ddd2;
+  --success: #15803d;
+  --danger: #b91c1c;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-navy: var(--navy);
+  --color-muted: var(--fg-muted);
+  --color-card: var(--bg-card);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.df-input {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.df-input:focus {
+  outline: 2px solid color-mix(in oklab, var(--brand) 45%, transparent);
+  border-color: var(--brand);
+}
+
+.df-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.df-btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.df-btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+.df-btn-secondary {
+  background: #fff;
+  color: var(--navy);
+  border: 1px solid var(--border);
+}
+
+.df-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(27, 36, 51, 0.04);
+}
+
+.df-skip {
+  position: absolute;
+  left: -999px;
+}
+
+.df-skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 50;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+}
